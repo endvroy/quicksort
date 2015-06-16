@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-#define arraySize 100000
+#define arraySize 200000
 
 extern void quick_sort(int *low, int *high);
 
@@ -11,7 +11,7 @@ void fill_array(int a[], int n)
 	srand(time(NULL));
 	for (int i = 0; i < n; i++)
 	{
-		a[i] = rand() % 10000;
+		a[i] = rand() % arraySize;
 	}
 }
 
@@ -39,11 +39,12 @@ int main(void)
 	start = clock();
 	quick_sort(a, &a[arraySize - 1]);
 	end = clock();
-	timeElapsed = (end - start) / (CLOCKS_PER_SEC);
+	timeElapsed = (double)(end - start) / (CLOCKS_PER_SEC);
 	//prn_array(a, arraySize);
-	if (start != 0)
+	if (start != -1)
 	{
-		printf("Time used in sorting: %d seconds\n", timeElapsed);
+	//	printf("CLOCK_PER_SEC= %d\n", CLOCKS_PER_SEC);
+		printf("Time used in sorting: %f seconds\n", timeElapsed);
 	}
 	else
 	{
