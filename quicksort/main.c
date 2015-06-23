@@ -38,7 +38,7 @@ void quick_sort(int *low, int *high)
 	{
 		int *pivot = adjust(low, high);
 		quick_sort(low, pivot);
-		quick_sort(pivot+1, high);
+		quick_sort(pivot + 1, high);
 	}
 }
 
@@ -73,9 +73,9 @@ int *adjust(int *low, int *high)
 		}
 	}
 
+	//phase_2
 	while (low < high)
 	{
-		//phase_2
 		if (low == pivot)	//case 1, direction = right->left
 		{
 			if (*high >= *pivot)
